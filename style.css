@@ -1,0 +1,330 @@
+/* ========== style.css 高级UI版 + 9:16移动端适配 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f1f5f9;
+    color: #0f172a;
+    line-height: 1.4;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+}
+
+.lang-fixed {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 1000;
+}
+
+.lang-fixed button {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(4px);
+    border: 1px solid #e2e8f0;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    color: #1e293b;
+}
+
+.lang-fixed button:active {
+    transform: scale(0.96);
+    background: #f1f5f9;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 32px;
+    padding-top: 12px;
+}
+
+.hero h1 {
+    font-size: 1.9rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #11ff01, #12ff31);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+}
+
+.hero p {
+    color: #ffffff;
+    margin-top: 8px;
+    font-size: 1rem;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0 12px;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    width: 280px;
+    padding: 14px 18px;
+    border-radius: 48px;
+    border: 1.5px solid #e2e8f0;
+    font-size: 1rem;
+    background: white;
+    transition: 0.2s;
+}
+
+.search-box input:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgba(79,70,229,0.2);
+    outline: none;
+}
+
+.search-box button {
+    padding: 14px 28px;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 48px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.search-box button:active {
+    transform: scale(0.96);
+    background: #4338ca;
+}
+
+.mode-switch {
+    margin-top: 18px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.mode {
+    padding: 10px 24px;
+    border: 1px solid #cbd5e1;
+    background: white;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: #334155;
+}
+
+.mode.active {
+    background: #4f46e5;
+    border-color: #4f46e5;
+    color: white;
+    box-shadow: 0 6px 12px -6px rgba(79,70,229,0.4);
+}
+
+.result-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 28px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 28px;
+    padding: 20px;
+    box-shadow: 0 15px 35px -12px rgba(0, 0, 0, 0.08);
+    transition: all 0.25s ease;
+    border: 1px solid rgba(226, 232, 240, 0.6);
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 22px 40px -14px rgba(0, 0, 0, 0.12);
+    border-color: #cbd5e1;
+}
+
+/* CALL 模式卡片头部 */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 14px;
+    border-bottom: 2px solid #f1f5f9;
+    padding-bottom: 10px;
+}
+
+.card-header strong {
+    font-size: 1.35rem;
+    font-weight: 700;
+    background: linear-gradient(120deg, #0f172a, #2d3a5e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.badge {
+    padding: 5px 14px;
+    border-radius: 40px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.green {
+    background: #dcfce7;
+    color: #15803d;
+    border-left: 3px solid #22c55e;
+}
+
+.red {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left: 3px solid #ef4444;
+}
+
+.info {
+    margin-top: 12px;
+    font-size: 0.9rem;
+    color: #334155;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    border-bottom: 1px dashed #eef2ff;
+    padding-bottom: 8px;
+}
+
+/* 访谈卡片专属：深色加粗的日期时间行 */
+.datetime-dark {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #0f172a;
+    background: #e9ecef;
+    padding: 10px 14px;
+    border-radius: 24px;
+    margin-bottom: 16px;
+    display: inline-block;
+    width: auto;
+    border-left: 5px solid #4f46e5;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* 商家名称单独一行，加大加粗 */
+.merchant-name-large {
+    font-size: 1.4rem;
+    font-weight: 800;
+    margin: 12px 0 8px 0;
+    background: linear-gradient(135deg, #1e293b, #4f46e5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    letter-spacing: -0.3px;
+}
+
+.map-btn {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 14px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: 600;
+    gap: 6px;
+    background: #eef2ff;
+    padding: 8px 16px;
+    border-radius: 40px;
+    transition: 0.2s;
+    width: fit-content;
+}
+
+.map-btn:active {
+    background: #e0e7ff;
+    transform: scale(0.96);
+}
+
+.loader, .empty-message {
+    text-align: center;
+    padding: 48px 20px;
+    background: white;
+    border-radius: 48px;
+    color: #64748b;
+    font-weight: 500;
+}
+
+.loader {
+    color: #4f46e5;
+}
+
+/* 手机端 9:16 卡片滚动 */
+@media (max-width: 640px) {
+    .container {
+        padding: 20px 16px 40px;
+    }
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+    .search-box input {
+        width: 100%;
+        max-width: 320px;
+    }
+    .card {
+        aspect-ratio: 9 / 16;
+        display: flex;
+        flex-direction: column;
+        padding: 18px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        border-radius: 32px;
+    }
+    .card::-webkit-scrollbar {
+        width: 4px;
+    }
+    .merchant-name-large {
+        font-size: 1.2rem;
+    }
+    .datetime-dark {
+        font-size: 0.95rem;
+        padding: 8px 12px;
+    }
+    .info {
+        font-size: 0.8rem;
+    }
+    .map-btn {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+    }
+}
+
+@media (min-width: 641px) {
+    .card {
+        aspect-ratio: auto !important;
+        overflow: visible;
+    }
+}
+
+.footer-note {
+    text-align: center;
+    margin-top: 42px;
+    font-size: 0.7rem;
+    color: #94a3b8;
+}
