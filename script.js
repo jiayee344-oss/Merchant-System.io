@@ -18,7 +18,7 @@ const translations = {
         title: '📞 商家CALL状态查询',
         subtitle: '自动扫描所有工作表 · 点击商家查看详情',
         searchBtn: '🔍 搜索',
-        placeholder: '输入商家名称（支持部分匹配）',
+        placeholder: '输入商家名称（关键字）',
         loading: '正在自动发现并扫描所有工作表...',
         noResult: '未找到相关商家，请检查名称',
         errorMsg: '数据加载失败，请检查网络或表格权限',
