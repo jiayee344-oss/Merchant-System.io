@@ -13,11 +13,16 @@
 </div>
 
 <div class="container">
+    <!-- Logo 区域（仅图片） -->
+    <div class="logo-area">
+        <img src="logo.png" alt="Logo" class="site-logo" id="siteLogo">
+    </div>
+
     <div class="hero">
         <h1 id="title">📞 商家CALL状态查询</h1>
         <p id="subtitle">自动扫描所有工作表 · 点击商家查看详情</p>
         <div class="search-box">
-            <input type="text" id="searchInput" placeholder="输入商家名称（关键字）" autocomplete="off">
+            <input type="text" id="searchInput" placeholder="输入关键字" autocomplete="off">
             <button onclick="searchData()" id="searchBtn">🔍 搜索</button>
         </div>
     </div>
