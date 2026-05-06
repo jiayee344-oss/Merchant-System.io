@@ -1,0 +1,298 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #0f172a;
+    line-height: 1.4;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px 20px 48px;
+}
+
+.lang-fixed {
+    position: fixed;
+    top: 18px;
+    right: 18px;
+    z-index: 1000;
+}
+
+.lang-fixed button {
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(4px);
+    border: 1px solid #e2e8f0;
+    padding: 8px 18px;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lang-fixed button:active {
+    transform: scale(0.96);
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 60px;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+.hero p {
+    color: rgba(255,255,255,0.9);
+    margin-top: 8px;
+    font-size: 1.1rem;
+}
+
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 24px 0 12px;
+    flex-wrap: wrap;
+}
+
+.search-box input {
+    width: 320px;
+    padding: 14px 20px;
+    border-radius: 48px;
+    border: none;
+    font-size: 1rem;
+    background: white;
+    transition: 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.search-box input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.5);
+}
+
+.search-box button {
+    padding: 14px 32px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 48px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.search-box button:active {
+    transform: scale(0.96);
+    background: #ff5252;
+}
+
+.result-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.result-item {
+    background: white;
+    border-radius: 24px;
+    padding: 16px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-left: 6px solid;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.result-item:hover {
+    transform: translateX(4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.result-item .merchant-name-small {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.result-item .badge-small {
+    padding: 4px 12px;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.result-item.status-new { border-left-color: #94a3b8; }
+.result-item.status-pending { border-left-color: #f59e0b; }
+.result-item.status-followup { border-left-color: #3b82f6; }
+.result-item.status-done { border-left-color: #10b981; }
+.result-item.status-noresponse { border-left-color: #8b5cf6; }
+
+.badge-new { background: #e2e8f0; color: #475569; }
+.badge-pending { background: #fed7aa; color: #9b2c00; }
+.badge-followup { background: #dbeafe; color: #1e40af; }
+.badge-done { background: #d1fae5; color: #065f46; }
+.badge-noresponse { background: #ede9fe; color: #5b21b6; }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 0;
+    border-radius: 32px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.close-btn {
+    float: right;
+    font-size: 32px;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    padding: 12px 20px 0 0;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+#modalBody {
+    padding: 20px 24px 30px;
+}
+
+.detail-card {
+    border-left: 8px solid;
+    border-radius: 24px;
+    background: #f8fafc;
+    padding: 16px;
+}
+
+.detail-card .merchant-name-large {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #1e293b, #4f46e5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.detail-card .info-row {
+    margin-top: 12px;
+    padding: 8px 0;
+    font-size: 1rem;
+    border-bottom: 1px dashed #e2e8f0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.detail-card .info-label {
+    font-weight: 700;
+    min-width: 90px;
+    color: #0f172a;
+}
+
+.phone-with-btn {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.dial-btn {
+    background: #4f46e5;
+    color: white;
+    border: none;
+    border-radius: 40px;
+    padding: 6px 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.dial-btn:active {
+    transform: scale(0.96);
+    background: #4338ca;
+}
+
+.loader, .empty-message {
+    text-align: center;
+    padding: 60px 20px;
+    background: white;
+    border-radius: 48px;
+    color: #64748b;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+.loader {
+    color: #4f46e5;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.footer-note {
+    text-align: center;
+    margin-top: 48px;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.7);
+}
+
+@media (max-width: 640px) {
+    .container { padding: 16px; }
+    .hero h1 { font-size: 1.6rem; }
+    .result-item { flex-direction: column; align-items: flex-start; }
+    .modal-content { width: 95%; margin: 20% auto; }
+    .detail-card .merchant-name-large { font-size: 1.4rem; }
+}
